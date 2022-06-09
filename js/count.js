@@ -1,14 +1,18 @@
-const timer = new timer("2022-06-26T00:00:00+8:00")
-function refresh(){
+function refresh() {
     const timing = timer.timing();
-    if(timing.countdown){
-        document.querySelector("#crossHours").innerText = timing.hours
-        document.querySelector("#crossMinutes").innerText = timing.minutes
-        document.querySelector("#crossSeconds").innerText = timing.seconds
-    }
-    else{
-        intervalID = clearInterval(intervalID);
-        document.querySelector("#crossYear").innerHTML = "中考来啦"
+    if (timing.isCountdown) {
+        days.innerText = timing.days;
+        hours.innerText = timing.hours;
+        minutes.innerText = timing.minutes;
+        seconds.innerText = timing.seconds;
+    } else {
+        text.innerText = '中考已经开始或已结束！';
+        refreshIntervalID = clearInterval(refreshIntervalID);
     }
 }
-let intervalID = setInterval(refresh,200);
+const text = document.querySelector('#countdownText'),
+    days = document.querySelector('#countdownDays'),
+    hours = document.querySelector('#countdownHours'),
+    minutes = document.querySelector('#countdownMinutes'),
+    seconds = document.querySelector('#countdownSeconds'),
+    timer = new Timer('2022-06-26T15:00:00+08:00'), refreshIntervalID = setInterval(refresh, 500);

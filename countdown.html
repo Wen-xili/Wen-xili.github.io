@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://static.lcwebsite.cn/js/timer/class.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/gh/Wen-xili/Wen-xili.github.io@main/js/count.js"></script>
     <title>中考倒计时</title>
     <style>
         body{
@@ -24,5 +23,25 @@
             <span id="countdownMinutes">-</span>分
             <span id="countdownSeconds">-</span>秒
     </section>
+    <script>
+        function refresh() {
+    const timing = timer.timing();
+    if (timing.isCountdown) {
+        days.innerText = timing.days;
+        hours.innerText = timing.hours;
+        minutes.innerText = timing.minutes;
+        seconds.innerText = timing.seconds;
+    } else {
+        text.innerText = '中考已经开始或已结束！';
+        refreshIntervalID = clearInterval(refreshIntervalID);
+    }  
+ }
+ const text = document.querySelector('#countdownText'),
+    days = document.querySelector('#countdownDays'),
+    hours = document.querySelector('#countdownHours'),
+    minutes = document.querySelector('#countdownMinutes'),
+    seconds = document.querySelector('#countdownSeconds'),
+    timer = new Timer('2022-06-26T15:00:00+08:00'), refreshIntervalID = setInterval(refresh, 500);
+    </script>
 </body>
-</html
+</html>

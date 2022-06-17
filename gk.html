@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中考倒计时</title>
+    <title>高考成绩查询倒计时</title>
     <style>
         body{
             text-align: center;
             color: pink;
-            background: url(https://tva4.sinaimg.cn/large/bfe05ea9ly1fxgvy898n2j21hc0u0wlg.jpg) fixed;
+            background: url(https://tse1-mm.cn.bing.net/th/id/R-C.f05b7cd392ec9b98849e63e3aa2d7455?rik=3GJ3tnOW23cqiA&riu=http%3a%2f%2fi3.img.969g.com%2fdown%2fimgx2015%2f01%2f07%2f289_092815_d43b2.jpg&ehk=RiRBvBXclYgiXPbiPWp9IFiZy5mKDUEdNrEERLWnwzk%3d&risl=&pid=ImgRaw&r=0) fixed;
             font-size: 2.0em;
         }
     </style>
 </head>
 <body>
-    <header><h1>中考倒计时</h1></header>
+    <header><h1>高考成绩查询倒计时</h1></header>
     <section>
      <div id="countdownText">
             <span id="countdownDays">-</span>天
             <span id="countdownHours">-</span>时
             <span id="countdownMinutes">-</span>分
             <span id="countdownSeconds">-</span>秒
+    </section>
+    <section>
+        <a href="https://eea.gd.gov.cn/" title="查询" target="_blank"><h1>高考成绩查询入口</h1></a>
     </section>
     <script>
         class Timer{constructor(time){this.base=new Date(time??Date.now());}reset(time){return this.base=new Date(time??Date.now());}timing(time){this.time=new Date(time??Date.now());const isCountdown=this.time<this.base,ms=isCountdown?this.base-this.time:this.time-this.base,sec=ms/1000,min=sec/60,hour=min/60,day=hour/24;return{days:Math.floor(day),hours:Math.floor(hour%24),minutes:Math.floor(min%60),seconds:Math.floor(sec%60),milliseconds:ms%1000,isCountdown};}}
@@ -35,7 +38,7 @@
         minutes.innerText = timing.minutes;
         seconds.innerText = timing.seconds;
     } else {
-        text.innerText = '中考已经开始或已结束！';
+        text.innerText = '高考成绩查询已经开始或已结束！';
         refreshIntervalID = clearInterval(refreshIntervalID);
     }  
  }
@@ -44,7 +47,7 @@
     hours = document.querySelector('#countdownHours'),
     minutes = document.querySelector('#countdownMinutes'),
     seconds = document.querySelector('#countdownSeconds'),
-    timer = new Timer('2022-06-26T15:00:00+08:00'), refreshIntervalID = setInterval(refresh, 500);
+    timer = new Timer('2022-06-25T12:00:00+08:00'), refreshIntervalID = setInterval(refresh, 500);
     </script>
 </body>
 </html>

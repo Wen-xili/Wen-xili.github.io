@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末联考倒计时</title>
+    <style>
+        body{
+            text-align: center;
+            color: pink;
+            background: url(https://tva4.sinaimg.cn/large/bfe05ea9ly1fxgvy898n2j21hc0u0wlg.jpg) fixed;
+            font-size: 2.0em;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>期末联考倒计时</h1></header>
+    <section>
+     <div id="countdownText">
+            <span id="countdownDays">-</span>天
+            <span id="countdownHours">-</span>时
+            <span id="countdownMinutes">-</span>分
+            <span id="countdownSeconds">-</span>秒
+    </section>
+    <script>
+        class Timer{constructor(time){this.base=new Date(time??Date.now());}reset(time){return this.base=new Date(time??Date.now());}timing(time){this.time=new Date(time??Date.now());const isCountdown=this.time<this.base,ms=isCountdown?this.base-this.time:this.time-this.base,sec=ms/1000,min=sec/60,hour=min/60,day=hour/24;return{days:Math.floor(day),hours:Math.floor(hour%24),minutes:Math.floor(min%60),seconds:Math.floor(sec%60),milliseconds:ms%1000,isCountdown};}}
+    </script>
+    <script>
+        function refresh() {
+    const timing = timer.timing();
+    if (timing.isCountdown) {
+        days.innerText = timing.days;
+        hours.innerText = timing.hours;
+        minutes.innerText = timing.minutes;
+        seconds.innerText = timing.seconds;
+    } else {
+        text.innerText = '期末联考已经开始或已结束！';
+        refreshIntervalID = clearInterval(refreshIntervalID);
+    }  
+ }
+ const text = document.querySelector('#countdownText'),
+    days = document.querySelector('#countdownDays'),
+    hours = document.querySelector('#countdownHours'),
+    minutes = document.querySelector('#countdownMinutes'),
+    seconds = document.querySelector('#countdownSeconds'),
+    timer = new Timer('2022-06-29T15:00:00+08:00'), refreshIntervalID = setInterval(refresh, 500);
+    </script>
+</body>
+</html>

@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <header><h1>高考成绩查询倒计时</h1></header>
+    <header><h1>志愿填报倒计时</h1></header>
     <section>
      <div id="countdownText">
             <span id="countdownDays">-</span>天
@@ -24,7 +24,7 @@
             <span id="countdownSeconds">-</span>秒
     </section>
     <section>
-        <a href="https://eea.gd.gov.cn/" title="查询" target="_blank"><h1>高考成绩查询入口</h1></a>
+        <a href="https://eea.gd.gov.cn/" title="查询" target="_blank"><h1>志愿填报入口</h1></a>
     </section>
     <script>
         class Timer{constructor(time){this.base=new Date(time??Date.now());}reset(time){return this.base=new Date(time??Date.now());}timing(time){this.time=new Date(time??Date.now());const isCountdown=this.time<this.base,ms=isCountdown?this.base-this.time:this.time-this.base,sec=ms/1000,min=sec/60,hour=min/60,day=hour/24;return{days:Math.floor(day),hours:Math.floor(hour%24),minutes:Math.floor(min%60),seconds:Math.floor(sec%60),milliseconds:ms%1000,isCountdown};}}
@@ -38,7 +38,7 @@
         minutes.innerText = timing.minutes;
         seconds.innerText = timing.seconds;
     } else {
-        text.innerText = '高考成绩查询已经开始或已结束！';
+        text.innerText = '志愿填报已经开始或已结束！';
         refreshIntervalID = clearInterval(refreshIntervalID);
     }  
  }
@@ -47,7 +47,7 @@
     hours = document.querySelector('#countdownHours'),
     minutes = document.querySelector('#countdownMinutes'),
     seconds = document.querySelector('#countdownSeconds'),
-    timer = new Timer('2022-06-24T14:15:00+08:00'), refreshIntervalID = setInterval(refresh, 500);
+    timer = new Timer('2022-06-29T19:00:00+08:00'), refreshIntervalID = setInterval(refresh, 500);
     </script>
 </body>
 </html>

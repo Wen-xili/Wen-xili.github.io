@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猜数字游戏</title>
+  <style>
+    h1{
+        color: pink
+    }
+    p{
+        color: pink
+    }
+    button{
+        color: pink
+    }
+    body{
+        background-color: aqua
+    }
+    ::placeholder{
+        color: pink;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>猜数字游戏</h1>
+  <p>我已经想好一个1到100之间的数字，你来猜猜看哦。</p >
+  <input type="number" id="guessInput" placeholder="输入你的猜测">
+  <button onclick="checkGuess()">猜一猜</button>
+  <p id="result"></p >
+
+  <script>
+    // 生成一个1到100之间的随机数作为答案
+    const targetNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guessInput').value);
+
+      if (isNaN(guess)) {
+        document.getElementById('result').innerHTML = "请输入一个有效的数字哦。";
+        return;
+      }
+
+      if (guess === targetNumber) {
+        document.getElementById('result').innerHTML = "恭喜你，猜对啦！";
+      } else if (guess < targetNumber) {
+        document.getElementById('result').innerHTML = "猜小了，再试试哦。";
+      } else {
+        document.getElementById('result').innerHTML = "猜大了，继续加油呀。";
+      }
+    }
+  </script>
+</body>
+
+</html>
